@@ -12,7 +12,7 @@ node{
     }
 
     stage('Push'){
-        sh "aws s3 cp deployment-lambda.zip s3://${bucket}"
+        sh "/root/.local/bin/aws s3 cp deployment-lambda.zip s3://${bucket}"
     }
 
     stage('Deploy'){
