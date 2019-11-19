@@ -2,7 +2,7 @@ def bucket = 'duggu-9988'
 def functionName = 'APIintegration-Lambda'
 def region = 'eu-east-1'
 
-node('slaves'){
+node{
     stage('Checkout'){
         checkout scm
     }
