@@ -1,4 +1,4 @@
 exports.handler = async (event) => {
     // TODO implement
-        return event.number * 5;
+        return event.number * 3;
         };
