@@ -16,7 +16,7 @@ node{
     }
 
     stage('Deploy'){
-        sh "aws lambda update-function-code --function-name ${functionName} \
+        sh "/root/.local/bin/aws lambda update-function-code --function-name ${functionName} \
                 --s3-bucket ${bucket} \
                 --s3-key deployment-lambda.zip \
                 --region ${region}"
