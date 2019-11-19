@@ -1,6 +1,6 @@
 def bucket = 'duggu-9988'
 def functionName = 'APIintegration-Lambda'
-def region = 'eu-east-1'
+def region = 'us-east-1'
 
 node{
     stage('Checkout'){
