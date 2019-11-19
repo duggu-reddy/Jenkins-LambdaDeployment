@@ -13,11 +13,11 @@ node{
     }
 
     stage('Push'){
-        sh "/root/.local/bin/aws s3 cp deployment-lambda.zip s3://${bucket}"
+        sh "sudo /root/.local/bin/aws s3 cp deployment-lambda.zip s3://${bucket}"
     }
 
     stage('Deploy'){
-        sh "/root/.local/bin/aws lambda update-function-code --function-name ${functionName} \
+        sh "sudo /root/.local/bin/aws lambda update-function-code --function-name ${functionName} \
                 --s3-bucket ${bucket} \
                 --s3-key deployment-lambda.zip \
                 --region ${region}"
