@@ -9,8 +9,6 @@ node{
 
     stage('Build'){
         sh "id"
-        sh "sudo su -"
-        sh "id"
         sh "zip deployment-lambda.zip *"
     }
 
