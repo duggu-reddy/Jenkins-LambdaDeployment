@@ -8,24 +8,18 @@ node{
     }
 
     stage('Build'){
-        sh "zip ${commitID()}.zip *"
+        sh "zip deployment-lambda.zip *"
     }
 
     stage('Push'){
-        sh "aws s3 cp ${commitID()}.zip s3://${bucket}"
+        sh "aws s3 cp deployment-lambda.zip s3://${bucket}"
     }
 
     stage('Deploy'){
         sh "aws lambda update-function-code --function-name ${functionName} \
                 --s3-bucket ${bucket} \
-                --s3-key ${commitID()}.zip \
+                --s3-key deployment-lambda.zip \
                 --region ${region}"
     }
 }
 
-def commitID() {
-    sh 'git rev-parse HEAD > .git/commitID'
-    def commitID = readFile('.git/commitID').trim()
-    sh 'rm .git/commitID'
-    commitID
-}
