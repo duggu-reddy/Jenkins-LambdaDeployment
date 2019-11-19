@@ -8,6 +8,7 @@ node{
     }
 
     stage('Build'){
+        sh "id"
         sh "zip deployment-lambda.zip *"
     }
 
